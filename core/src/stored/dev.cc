@@ -237,6 +237,11 @@ Device* FactoryCreateDevice(JobControlRecord* jcr,
     default:
 #ifdef HAVE_DYNAMIC_SD_BACKENDS
       dev = InitBackendDevice(jcr, device_resource->dev_type);
+      if (!dev) {
+        Jmsg2(jcr, M_ERROR, 0, _("no backend for device %s (type %d) loaded\n"),
+              device_resource->device_name, device_resource->dev_type);
+        return nullptr;
+      }
 #endif
       break;
   }
