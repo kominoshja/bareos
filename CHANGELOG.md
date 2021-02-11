@@ -7,6 +7,8 @@ and since Bareos version 20 this project adheres to [Semantic Versioning](https:
 
 ### Fixed
 - fix invalid file descriptor issue in the libcloud plugin [PR #702]
+- fix parallel python plugin jobs [PR #732]
+- fix oVirt plugin problem with config file [PR #732]
 
 ### Added
 - added reload commands to systemd service [PR #694]
@@ -15,6 +17,7 @@ and since Bareos version 20 this project adheres to [Semantic Versioning](https:
 - Package **bareos-database-postgresql**: add recommendation for package **dbconfig-pgsql**.
 - Adapt the init scripts for some platform to not refer to a specific (outdated) configuration file, but to use the default config file instead.
 - scripts: cleaned up code for postgresql db creation [PR #709]
+- py2lug-fd-ovirt systemtest: use ovirt-plugin.ini config file [PR #732]
 
 ### Deprecated
 
