@@ -7,6 +7,7 @@ and since Bareos version 20 this project adheres to [Semantic Versioning](https:
 
 ### Fixed
 - fix invalid file descriptor issue in the libcloud plugin [PR #702]
+- [Issue #1316]: fix that stored loses a device instance when using spooling [PR #724]
 
 ### Added
 - added reload commands to systemd service [PR #694]
