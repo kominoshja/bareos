@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # BAREOS - Backup Archiving REcovery Open Sourced
 #
-# Copyright (C) 2014-2020 Bareos GmbH & Co. KG
+# Copyright (C) 2014-2021 Bareos GmbH & Co. KG
 #
 # This program is Free Software; you can redistribute it and/or
 # modify it under the terms of version three of the GNU Affero General Public
@@ -373,14 +373,15 @@ class BareosFdPluginPostgres(BareosFdPluginLocalFilesBaseclass):  # noqa
         Called on restore and on diff/inc jobs.
         """
         # Improve: sanity / consistence check of restore object
-        self.row_rop_raw = ROP.object
+        # ROP.object is of type bytearray.
+        self.row_rop_raw = ROP.object.decode("UTF-8")
         try:
-            self.rop_data[ROP.jobid] = json.loads(str(self.row_rop_raw))
+            self.rop_data[ROP.jobid] = json.loads(self.row_rop_raw)
         except Exception as e:
             bareosfd.JobMessage(
                 M_ERROR,
-                'Could net parse restore object json-data "%s\ / "%s"'
-                % (self.row_rop_raw, e.message),
+                'Could not parse restore object json-data "%s\ / "%s"\n'
+                % (self.row_rop_raw, e),
             )
 
         if "lastBackupStopTime" in self.rop_data[ROP.jobid]:
