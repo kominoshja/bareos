@@ -3,6 +3,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and since Bareos version 20 this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [20.0.1] - 2020-xx-xx
+
+### Fixed
+- [Issue #1316]: fix that stored loses a device instance when using spooling [PR #734]
+
+### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Security
+
 ## [20.0.0] - 2020-12-16
 
 ### Fixed
